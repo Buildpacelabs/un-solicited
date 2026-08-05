@@ -188,8 +188,8 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
   <p class="mono-lbl">02 / The receipt</p>
   <h2 class="d h2 rv" style="margin-top:16px;max-width:22ch">Before we say anything — here is what we counted.</h2>
   <ul class="receipt">
-    <li><span class="n" data-count="7000">7,000</span><span class="t">Registered. <em>You published that.</em></span></li>
-    <li><span class="n" data-count="300">300</span><span class="t">Paid. <em>You published that too.</em></span></li>
+    <li><span class="n" data-count="7000" data-suffix="+">7,000+</span><span class="t">Registered. <em>You published that.</em></span></li>
+    <li><span class="n" data-count="300" data-suffix="+">300+</span><span class="t">Paid. <em>You published that too.</em></span></li>
     <li><span class="n">0</span><span class="t">Ways to leave your name on cunin.in. <em>We read the markup, not the copy.</em></span></li>
     <li><span class="n">1</span><span class="t">Account you follow back. <em>Out of three and a half thousand.</em></span></li>
     <li><span class="n">4</span><span class="t">Prefixes doing all the work &mdash; UN, MIS, DIS, IM. <em>Not one ordinary adjective.</em></span></li>
@@ -500,7 +500,7 @@ function count(){
       if(reduce)return;
       (function step(ts){
         if(!t0)t0=ts; var p=Math.min((ts-t0)/400,1);
-        el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString('en-IN');
+        el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString('en-IN')+(el.dataset.suffix||'');
         if(p<1)requestAnimationFrame(step);
       })(0);
       requestAnimationFrame(function(ts){t0=ts;});
