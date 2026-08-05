@@ -110,6 +110,33 @@ section:first-of-type{border-top:0}
   text-transform:uppercase;letter-spacing:.06em;line-height:1.6}
 .fix .ar{flex:0 0 auto;font-weight:700}
 
+/* ---- disclosure ---- */
+details{margin-top:18px}
+details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pen);
+  padding:14px 0;min-height:44px;-webkit-tap-highlight-color:transparent}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:'+';display:inline-block;width:1ch;font-weight:700}
+details[open] summary::before{content:'\2212'}
+details summary:hover,details summary:focus-visible{color:var(--stamp);outline:0}
+details .body{padding-top:6px;border-left:1px solid var(--dust);
+  padding-left:clamp(14px,2.2vw,24px);margin-top:6px}
+details .body p{color:var(--ash);max-width:62ch;margin-bottom:12px;font-size:13px}
+details .body p strong{color:var(--stamp);font-weight:400}
+
+/* ---- offer ---- */
+.offer{display:grid;gap:0;margin-top:30px;border-top:1px solid var(--dust)}
+.row{display:grid;gap:6px 22px;padding:20px 0;border-bottom:1px solid var(--dust)}
+@media(min-width:760px){.row{grid-template-columns:9rem 1fr}}
+.row .when{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pen)}
+.row .what{display:grid;gap:10px}
+.row .nm{font-family:var(--disp);font-weight:900;font-stretch:70%;letter-spacing:-.02em;
+  font-size:clamp(1rem,2.3vw,1.35rem);text-transform:uppercase}
+.row .nm span{color:var(--ash);font-family:var(--mono);font-weight:400;font-stretch:100%;
+  font-size:12px;letter-spacing:.04em;text-transform:none;display:block;margin-top:5px;
+  max-width:56ch;line-height:1.55}
+.row .out{color:var(--pen);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+
 /* ---- ship ---- */
 .ship{background:var(--dust);padding:clamp(26px,4.5vw,44px);margin-top:32px}
 .ship .k{font-size:11px;letter-spacing:.18em;color:var(--pen);margin-bottom:14px}
@@ -208,52 +235,61 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
   <div style="margin-top:clamp(30px,5vw,54px)">
 
     <article class="item" data-ix="01">
-      <p class="idx">01 / UN–COUNTED</p>
-      <h3 class="d h3">7,000 came. 300 stayed.</h3>
+      <p class="idx">01 / UN&ndash;COUNTED</p>
+      <h3 class="d h3">7,000+ came. 300+ stayed.</h3>
       <p class="sub">You don't know who the other 6,700 were.</p>
-      <p>You wrote the number yourself on 31 July. It is a good number — it proves the demand is real. It is also the most expensive sentence on your LinkedIn, because <strong>96% of the intent you captured did not convert</strong>, and there is currently no way to go back and ask them why.</p>
-      <p>The gate is the reason. A Shopify password field is binary — it lets in the people who already know, and it destroys everyone else on arrival. It captures nothing from a failed attempt. Fifteen outlets ran your funding story in three days and pointed every reader at a door that keeps no record of who knocked.</p>
-      <p><strong>A scarcity brand's most valuable asset is a list of people who want in and can't get in.</strong> You are deleting yours daily.</p>
-      <div class="fix"><span class="ar">&rarr;</span><span>Keep the gate. Make it count. Every knock is a name, a source and a position in a queue.</span></div>
+      <div class="fix"><span class="ar">&rarr;</span><span>Keep the gate. Make it count. Every knock becomes a name, a source and a position in a queue.</span></div>
+      <details><summary>Read the case</summary><div class="body">
+        <p>You published the number yourself on 31 July. It proves the demand is real. It is also the most expensive sentence on your LinkedIn, because <strong>96% of the intent you captured did not convert</strong> — and there is no way to go back and ask them why.</p>
+        <p>The gate is the reason. A Shopify password field is binary: it lets in the people who already know, and destroys everyone else on arrival. Fifteen outlets ran your funding story in three days and pointed every reader at a door that keeps no record of who knocked.</p>
+        <p><strong>A scarcity brand's most valuable asset is a list of people who want in and can't get in.</strong> You are deleting yours daily.</p>
+      </div></details>
     </article>
 
     <article class="item" data-ix="02">
-      <p class="idx">02 / UN–EXPLAINED</p>
+      <p class="idx">02 / UN&ndash;EXPLAINED</p>
       <h3 class="d h3">Nobody knows what it does.</h3>
       <p class="sub">You invented a category and never said what it is.</p>
-      <p>Carryable perfume accessories. It is a genuinely good category — the behaviour exists, and no funded premium brand owns it. But nowhere, across the whole grid or the fifteen articles, does anything say what the object physically <strong>is</strong>. Solid or liquid. How long it wears. Whether it refills. How it attaches.</p>
-      <p>That holds beautifully until someone has to decide whether to spend money. <strong>Mystery sells the first one. It does not sell the second.</strong></p>
-      <div class="fix"><span class="ar">&rarr;</span><span>Explain it without explaining it. No notes. No bergamot. No heart of jasmine. A spec plate, not a description — evidence, in your own typeface.</span></div>
+      <div class="fix"><span class="ar">&rarr;</span><span>Explain it without explaining it. No notes, no bergamot. A spec plate, not a description.</span></div>
+      <details><summary>Read the case</summary><div class="body">
+        <p>Carryable perfume accessories is a genuinely good category — the behaviour exists, and no funded premium brand owns it. But nowhere, across the whole grid or the fifteen articles, does anything say what the object physically <strong>is</strong>. Solid or liquid. How long it wears. Whether it refills. How it attaches.</p>
+        <p>That holds beautifully until someone has to decide whether to spend money. <strong>Mystery sells the first one. It does not sell the second.</strong></p>
+      </div></details>
     </article>
 
     <article class="item" data-ix="03">
-      <p class="idx">03 / UN–ANSWERED</p>
+      <p class="idx">03 / UN&ndash;ANSWERED</p>
       <h3 class="d h3">Thousands of followers. You follow one.</h3>
       <p class="sub">You said "you might be one of us." Nobody can answer.</p>
-      <p>There is no surface anywhere on which an IM–perfect can actually <strong>be</strong> one. No list, no room, no channel, no signal that separates the person who has been there since May from the person who arrived this morning. Instagram is the whole distribution asset and it cannot tell them apart.</p>
-      <p>Right now exclusivity is a caption. <strong>It should be a room.</strong></p>
-      <div class="fix"><span class="ar">&rarr;</span><span>Build the room, then membership is a place instead of a claim. Broadcast, not chat — secret societies run on knowing first, not on talking.</span></div>
+      <div class="fix"><span class="ar">&rarr;</span><span>Build the room. Then membership is a place instead of a claim.</span></div>
+      <details><summary>Read the case</summary><div class="body">
+        <p>There is no surface anywhere on which an IM&ndash;perfect can actually <strong>be</strong> one. No list, no room, no channel, nothing that separates the person who has been there since May from the person who arrived this morning. Instagram is the whole distribution asset and it cannot tell them apart.</p>
+        <p>Right now exclusivity is a caption. <strong>It should be a room.</strong> Broadcast, not chat — secret societies run on knowing first, not on talking.</p>
+      </div></details>
     </article>
 
     <article class="item" data-ix="04">
-      <p class="idx">04 / UN–SCALABLE</p>
+      <p class="idx">04 / UN&ndash;SCALABLE</p>
       <h3 class="d h3">You met this one at the door.</h3>
       <p class="sub">The brand is built on being hard to get. The cap table is built on getting big.</p>
-      <p>One of those has to give, and it will not be the cap table. Two funds just made their <strong>first fragrance bet</strong> on you, and both of them said the quiet part out loud: culture as much as commerce, a brand you want to be seen with, priced like it respects itself.</p>
-      <p>The failure mode is well documented and it is not dramatic. It is gradual. More SKUs, wider availability, one exception that made sense at the time — and a premium anti-dupe position quietly becomes another dupe brand. Bella Vita did &#8377;456 Cr last year on &#8377;90 Cr of advertising for a 4.61% margin. <strong>That is what the bottom of this market actually pays.</strong></p>
-      <p>The other direction has a cliff too, and that evidence is unusually clean. VF bought Supreme for &#36;2.2bn and sold it four years later for &#36;1.5bn — revenue <em>fell</em> across the hold, and the diagnosis was that opening stores removed a layer of scarcity. In India the gap is starker: the purest drop brands here are &#8377;4&ndash;30 Cr businesses. Snitch, which won on newness velocity instead, did <strong>&#8377;900 Cr</strong>.</p>
-      <p><strong>Scarcity alone doesn't get you there. Volume alone costs you the brand.</strong></p>
-      <div class="fix"><span class="ar">&rarr;</span><span>Scarcity has to stop being a mood and become a mechanic. Hold the unit scarce; scale the frequency and the tiers around it.</span></div>
+      <div class="fix"><span class="ar">&rarr;</span><span>Scarcity has to stop being a mood and become a mechanic. Hold the unit scarce; scale the frequency and the tiers.</span></div>
+      <details><summary>Read the case</summary><div class="body">
+        <p>One of those has to give, and it will not be the cap table. Two funds just made their <strong>first fragrance bet</strong> on you, and both said the quiet part out loud: culture as much as commerce, a brand you want to be seen with, priced like it respects itself.</p>
+        <p>The failure mode is gradual, not dramatic. More SKUs, wider availability, one exception that made sense at the time — and a premium anti-dupe position quietly becomes another dupe brand. Bella Vita did &#8377;456 Cr last year on &#8377;90 Cr of advertising for a 4.61% margin. <strong>That is what the bottom of this market pays.</strong></p>
+        <p>The other direction has a cliff too. VF bought Supreme for &#36;2.2bn and sold it four years later for &#36;1.5bn — revenue fell across the hold, and the diagnosis was that opening stores removed a layer of scarcity. In India the gap is starker: the purest drop brands here are &#8377;4&ndash;30 Cr businesses. Snitch, which won on newness velocity instead, did <strong>&#8377;900 Cr</strong>.</p>
+      </div></details>
     </article>
 
     <article class="item" data-ix="05">
-      <p class="idx">05 / UN–REPEATABLE</p>
+      <p class="idx">05 / UN&ndash;REPEATABLE</p>
       <h3 class="d h3">A grid of pure taste. No engine.</h3>
       <p class="sub">You came from a machine that ships 500 new things a week.</p>
-      <p>Every one of those frames came out of the same few heads. That is exactly why they are good. It is also why there aren&rsquo;t more of them, and why it cannot go faster without one of you working more hours.</p>
-      <p>You already know what the alternative feels like, because you built it. Five hundred designs a week. A drop every Friday, without exception. A thirty-day inventory cycle against an industry that runs three to five months. <strong>You are not slow people. You are operating without a machine.</strong></p>
-      <p>And you cannot hire your way out of it. A junior types a plain hyphen into IM&ndash;PERFECT in week one.</p>
-      <div class="fix"><span class="ar">&rarr;</span><span>The taste stays yours. The labour stops being yours. Encode the rules so the room can produce at volume without drifting.</span></div>
+      <div class="fix"><span class="ar">&rarr;</span><span>The taste stays yours. The labour stops being yours.</span></div>
+      <details><summary>Read the case</summary><div class="body">
+        <p>Everything on the grid came out of the same few heads. That is exactly why it is good. It is also why there isn't more of it, and why it cannot go faster without one of you working more hours.</p>
+        <p>You already know what the alternative feels like, because you built it. Five hundred designs a week. A drop every Friday, without exception. A thirty-day inventory cycle against an industry that runs three to five months. <strong>You are not slow people. You are operating without a machine.</strong></p>
+        <p>And you cannot hire your way out of it. A junior types a plain hyphen into IM&ndash;PERFECT in week one.</p>
+      </div></details>
     </article>
 
   </div>
@@ -262,72 +298,98 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
 <!-- 04 / THE ONE WE'D SHIP FIRST -->
 <section id="s-ship">
   <p class="mono-lbl">04 / The one we'd ship first</p>
-  <h2 class="d h2 rv" style="margin-top:16px;max-width:18ch">01 / UN–COUNTED. Because it decides the other four.</h2>
+  <h2 class="d h2 rv" style="margin-top:16px;max-width:18ch">You're not selling perfume. You're selling a collectible.</h2>
+  <p style="color:var(--ash);margin-top:18px;max-width:60ch">Worn, clipped, carried, <em style="font-style:normal;color:var(--stamp)">seen</em>. The box says DANGLE. Four names from one grammar is the structure of a <strong style="font-weight:400;color:var(--stamp)">set</strong>.</p>
 
-  <div class="ship">
-    <p class="k">First, the thing we think you already suspect</p>
-    <p><strong>You are not selling perfume. You are selling a collectible.</strong></p>
-    <p>The category you invented is an accessory — worn, clipped, carried, <em>seen</em>. The sub-brand on the box is DANGLE. The debut isn't a hero scent with flankers; it is four names from one grammar, which is the structure of a set. DIS–LOYAL is photographed in a clear acrylic case like evidence. The launch flatlay is a haul, not an arrangement. There are QR codes on the packaging already.</p>
-    <p>This matters more than it sounds. Perfume repeats on depletion — slow, unpredictable, outside your control. <strong>Collectibles repeat on set completion</strong>, where the unit of demand is "which one don't I have" — a question you author entirely. It is also the one category on earth where scarcity is the growth engine rather than the ceiling on it. Pop Mart and SNKRS both grow by raising drop frequency and access tiers while holding unit scarcity constant — the opposite of widening distribution, which is the move that cost Supreme its premium.</p>
-    <p class="ash">The sting: you shipped the entire set in one drop, un-serialised, with no ownership record. Nobody at CUNIN can answer "who owns two of the four" — which is the highest-converting message in a set-based business.</p>
-  </div>
+  <details><summary>Why that changes everything</summary><div class="body">
+    <p>Perfume repeats on depletion — slow, unpredictable, outside your control. <strong>Collectibles repeat on set completion</strong>, where the unit of demand is "which one don't I have" — a question you author entirely. It is also the one category where scarcity is the growth engine rather than the ceiling on it. Pop Mart and SNKRS both grow by raising drop frequency and access tiers while holding unit scarcity constant — the opposite of widening distribution, which is the move that cost Supreme its premium.</p>
+    <p class="ash">The sting: you shipped the entire set in one drop, un-serialised, with no ownership record. Nobody at CUNIN can answer "who owns two of the four" — the highest-converting message in a set-based business.</p>
+  </div></details>
 
-  <div class="ship" style="margin-top:14px">
-    <p class="k">So here is the build</p>
-    <p><strong>You already wrote the brief.</strong> "Rest of you have to wait, or be cunin enough to find a way in." That sentence describes a graded, earnable, adversarial access system.</p>
-    <p>The software underneath it is a single shared password field.</p>
-    <p><strong>You wrote a mechanism you never built.</strong> We would build it — a real gate in front of your storefront, checkout untouched on Shopify. A waitlist with a visible position. Invite codes that work exactly once, with a referral tree. Unlock windows per cohort. A lottery when it's oversubscribed. And an event log that records every attempt, <em>including the failures</em>.</p>
-    <p>Not a discount for a referral — that converts scarcity into a coupon and your people will read it as a betrayal in about four minutes. The reward is proximity, not money. <strong>You don't get money off. You get in earlier.</strong> Every version of that makes the object harder to get for everyone outside the loop, not easier.</p>
+  <div class="ship" style="margin-top:26px">
+    <p class="k">You already wrote the brief</p>
+    <p class="d h3" style="color:var(--stamp)">"Be cunin enough to find a way in."</p>
+    <p style="margin-top:14px">Nobody built the way in. The software underneath that sentence is a single shared password field.</p>
     <p class="arrowline">Scarcity you can't scale<br><span class="pen">&rarr; scarcity that scales itself.</span></p>
   </div>
-
-  <div class="ship" style="margin-top:14px;background:none;border:1px solid var(--pen);padding:clamp(22px,4vw,36px)">
-    <p class="k">And you don't pay to find out</p>
-    <p>We build it first, in your black, your condensed caps, your dash, your copy. You open it on your phone, enter an email, get a position, send an invite to Amish and watch your own number move.</p>
-    <p>Then we show you the other screen: <strong>everyone who tried to get in this week, where they came from, and what your current page did with them.</strong></p>
-    <p class="ash">That is the whole method. A reference build comes before the estimate. Progress is a URL you can open, not a percentage on a slide.</p>
-  </div>
 </section>
 
-<!-- 05 / WHO'S TALKING -->
+<!-- 05 / WHAT WE'D BUILD -->
+<section id="s-offer">
+  <p class="mono-lbl">05 / What we'd build</p>
+  <h2 class="d h2 rv" style="margin-top:16px;max-width:20ch">Four weeks to stop the leak. Then earn the rest.</h2>
+
+  <div class="offer">
+    <div class="row">
+      <p class="when">First<br>4 weeks</p>
+      <div class="what">
+        <p class="nm">UN&ndash;LOCK
+          <span>A real gate in front of your store. It remembers everyone who tried.</span></p>
+        <p class="nm">UN&ndash;LISTED
+          <span>The drop channel. Insiders find out first.</span></p>
+        <p class="out">&rarr; You stop losing the 96%.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <p class="when">Then<br>only if it works</p>
+      <div class="what">
+        <p class="nm">UN&ndash;DUPED
+          <span>A serial on every unit, on the QR you already print. Now you know who owns what.</span></p>
+        <p class="nm">THE GRAIN
+          <span>Your brand rules as tests that fail. Volume without drift.</span></p>
+        <p class="out">&rarr; The set starts selling itself.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <p class="when">Throughout<br>Last Agency</p>
+      <div class="what">
+        <p class="nm">DEMAND
+          <span>Search, AI answers, and paid that never shows a discount. Scarcity is the offer.</span></p>
+        <p class="out">&rarr; A channel you currently can't use.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <p class="when">How you pay</p>
+      <div class="what">
+        <p class="nm">NOTHING, FIRST
+          <span>We build the gate before the estimate. You use it first.</span></p>
+        <p class="nm">THEN A SHARE
+          <span>A low base plus a cut of drop revenue through that gate, capped.</span></p>
+        <p class="out">&rarr; Pay us out of the growth, or don't.</p>
+      </div>
+    </div>
+  </div>
+
+  <details><summary>What's actually in the build</summary><div class="body">
+    <p><strong>UN&ndash;LOCK</strong> &mdash; waitlist with a visible position, single-use invite codes with a referral tree, unlock windows per cohort, a lottery when it's oversubscribed, and an event log that records every attempt including the failures. Checkout stays on Shopify, so we never touch payments.</p>
+    <p><strong>The referral reward is proximity, not money.</strong> Not a discount for a share &mdash; that turns scarcity into a coupon and your people will read it as a betrayal in about four minutes. You don't get money off, you get in earlier. A lower serial. A code that works once. Every version makes the object harder to get for everyone outside the loop, not easier.</p>
+    <p><strong>UN&ndash;DUPED</strong> makes anti-dupe scannable instead of a press quote &mdash; and it is the table that makes set-completion campaigns, tiered access and serial hierarchy possible at all.</p>
+    <p><strong>THE GRAIN</strong> encodes the palette, the uppercase, the dash rule and the ten things CUNIN would never do as failing tests, then has a model score every candidate before a human sees it. Veto stays with you. We are building you a faster way to use it.</p>
+    <p><strong>Paid</strong> runs on the direct-response primitives your grammar already owns: live stock counter, queue position, <em style="font-style:normal">0 RESTOCK</em> in condensed black, a deadline in DD-MM-YYYY. Your aesthetic is accidentally a conversion aesthetic. Nobody has noticed.</p>
+  </div></details>
+</section>
+
+<!-- 06 / WHO'S TALKING + TERMS -->
 <section id="s-who">
-  <p class="mono-lbl">05 / Who's talking</p>
+  <p class="mono-lbl">06 / Who's talking</p>
   <h2 class="d h2 rv" style="margin-top:16px">We are two.</h2>
-  <div class="rail" style="margin-top:26px;display:grid;gap:14px;max-width:56ch">
+  <div class="rail" style="margin-top:26px;display:grid;gap:12px;max-width:58ch">
     <p><strong style="font-weight:400">BUILDSPACE LABS</strong> <span class="ash">&mdash; we build the machine.</span></p>
     <p><strong style="font-weight:400">LAST AGENCY</strong> <span class="ash">&mdash; we drive the demand.</span></p>
-    <p class="ash" style="margin-top:10px">You have neither. That isn't a criticism, it's a calendar &mdash; you're ten weeks in public. You have no engineer, and one marketing hire six months into a first job. That gap between the plan you funded and the roster you have is the only reason this page exists.</p>
+    <p class="ash">You have neither. That isn't a criticism, it's a calendar.</p>
   </div>
-</section>
 
-<!-- 06 / THE TERMS -->
-<section id="s-terms">
-  <p class="mono-lbl">06 / The terms</p>
-  <h2 class="d h2 rv" style="margin-top:16px">No decks. No retainers you can't leave.</h2>
-  <div class="terms">
-    <div>
-      <h4>Buildspace Labs</h4>
-      <ul>
-        <li>You click the system before you pay for it.</li>
-        <li>A working reference comes before the estimate.</li>
-        <li>The people who scope it write it.</li>
-        <li>Every week ends with something deployed.</li>
-        <li>Decisions get written down next to the code.</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Last Agency</h4>
-      <ul>
-        <li>Rank or it's free.</li>
-        <li>SEO is free until it beats your own baseline.</li>
-        <li>Paid media fee is waived if we miss the number.</li>
-        <li>Social is month-to-month. You keep the assets.</li>
-        <li>Three clients a month. No lock-in.</li>
-      </ul>
-    </div>
-  </div>
-  <p class="d h3 rv" style="margin-top:38px;max-width:26ch">Miss your number and you stop paying for it. <span class="pen">We put the risk on our side of the table.</span></p>
-  <p class="d h3" style="margin-top:26px">You can be <span class="pen">DIS–LOYAL</span>. It's built in.</p>
+  <p class="d h3 rv" style="margin-top:44px;max-width:26ch">Miss your number and you stop paying for it.</p>
+  <details><summary>The terms in full</summary><div class="body">
+    <p><strong>Buildspace Labs</strong> &mdash; you click the system before you pay for it. A working reference comes before the estimate. The people who scope it write it. Every week ends with something deployed.</p>
+    <p><strong>Last Agency</strong> &mdash; rank or it's free. SEO is free until it beats your own baseline. Paid media fee is waived if we miss the number. Social is month-to-month and you keep the assets. Three clients a month, no lock-in.</p>
+    <p>One invoice, one point of contact. You never manage two vendors.</p>
+  </div></details>
+
+  <p class="d h3" style="margin-top:30px">You can be <span class="pen">DIS&ndash;LOYAL</span>. It's built in.</p>
 </section>
 
 <!-- 07 / THE CLOSE -->
