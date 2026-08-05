@@ -110,6 +110,29 @@ section:first-of-type{border-top:0}
   text-transform:uppercase;letter-spacing:.06em;line-height:1.6}
 .fix .ar{flex:0 0 auto;font-weight:700}
 
+/* ---- evidence marker ---- */
+details.ev{display:block;margin-top:14px}
+details.ev>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;
+  gap:9px;min-height:44px;padding:11px 0;-webkit-tap-highlight-color:transparent;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+details.ev>summary::-webkit-details-marker{display:none}
+details.ev>summary i{font-style:normal;display:inline-flex;align-items:center;
+  justify-content:center;width:16px;height:16px;border:1px solid var(--ash);
+  font-size:10px;line-height:1;flex:0 0 auto}
+details.ev>summary:hover,details.ev>summary:focus-visible{color:var(--pen);outline:0}
+details.ev>summary:hover i,details.ev>summary:focus-visible i{border-color:var(--pen)}
+details.ev[open]>summary{color:var(--pen)}
+details.ev[open]>summary i{border-color:var(--pen)}
+.ev .note{border:1px solid var(--dust);padding:clamp(16px,2.6vw,24px);margin-top:4px;
+  max-width:70ch}
+.ev .note dl{display:grid;gap:14px;margin:0}
+.ev .note dt{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--pen);
+  margin-bottom:5px}
+.ev .note dd{margin:0;color:var(--ash);font-size:12.5px;line-height:1.65}
+.ev .note dd em{font-style:normal;color:var(--stamp)}
+.ev .note dt.gap{color:var(--stamp)}
+samp{font-family:inherit;color:var(--stamp)}
+
 /* ---- disclosure ---- */
 details{margin-top:18px}
 details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
@@ -187,6 +210,11 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
   <input id="gin" autocomplete="off" autocapitalize="characters" spellcheck="false"
          aria-label="Password" placeholder="">
   <p class="mono-lbl" id="ghint">Hint: there isn't one.</p>
+  <details class="ev"><summary><i>i</i>Why a gate, and why these faces</summary><div class="note"><dl>
+        <div><dt class="">What we saw</dt><dd>Your post of 16 June &mdash; one blue ball with a jagged grin, in a field of dozens of identical flat smileys. Your profile picture is that same grin.</dd></div>
+        <div><dt class="">Why we used it</dt><dd>We think that one frame is the whole brand, more than any product shot. We rebuilt it once, in our colour, and never used it again anywhere on this page. Once is a citation. Twice would be theft.</dd></div>
+        <div><dt class="">Why it opens for everyone</dt><dd>Because we're outside it. We didn't have your password and we're not pretending we did.</dd></div>
+      </dl></div></details>
   <div id="gmsg">
     <p class="d h2 gline" id="g1">UN–LOCKED.</p>
     <p class="d h2 gline pen" id="g2">We didn't have the password.</p>
@@ -207,6 +235,12 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
     <p class="mono-lbl">Buildspace Labs &times; Last Agency / 05-08-2026</p>
     <p style="margin-top:18px;color:var(--ash);max-width:44ch;text-transform:uppercase;letter-spacing:.06em;font-size:12px">
       We borrowed your grammar for one page. We'll give it back.</p>
+  <details class="ev"><summary><i>i</i>How we built this page</summary><div class="note"><dl>
+        <div><dt class="">What we saw</dt><dd>True black, one accent colour per drop and never mixed, condensed caps at a single heavy weight, hierarchy by scale alone, heavy grain, every frame a 9:16 poster. Negation prefixes &mdash; UN, MIS, DIS, IM &mdash; on at least eleven coined words.</dd></div>
+        <div><dt class="">What we did</dt><dd>Matched the system, then broke it in four places on purpose so this reads as a separate studio and not a fan account: our accent is <em>#FF3B00</em>, which is none of your four; body copy is monospace, which you never use; we align left instead of centre, because a poster is centred and a document isn't; and we use no photography at all.</dd></div>
+        <div><dt class="">The rule we follow</dt><dd>Your words appear in white. Ours appear in orange. Nothing here pretends to be yours.</dd></div>
+        <div><dt class="gap">What we're assuming</dt><dd>That the long dash on your poster artwork is the same en dash you type. We can't measure a glyph inside a JPEG, so we matched the character we could verify &mdash; <em>U+2013</em>, from <em>&ldquo;For the IM&ndash;perfects.&rdquo;</em> and <em>&ldquo;Stay MIS&ndash;READ&rdquo;</em>. If the artwork uses a different dash, say so and we'll change every one on this page.</dd></div>
+      </dl></div></details>
   </div>
 </section>
 
@@ -223,6 +257,14 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
     <li><span class="n">$450K</span><span class="t">Two funds. <em>Neither has bought fragrance before.</em></span></li>
   </ul>
   <p class="d h3 rv" style="margin-top:36px">We didn't research you. <span class="pen">We read you.</span></p>
+  <details class="ev"><summary><i>i</i>Where each number came from</summary><div class="note"><dl>
+        <div><dt class="">7,000+ and 300+</dt><dd>Your own LinkedIn post of <em>31 July 2026</em>: &ldquo;CUNIN is going live exclusively for our pre-registered users. 7,000+ people registered with us. 300+ paid&hellip;&rdquo; We kept your plus signs.</dd></div>
+        <div><dt class="">0 ways to ask</dt><dd>We read the HTML of cunin.in on <em>5 Aug 2026</em>. Three forms: two Shopify storefront-password forms and one standard customer account login. The login has an email field, but it only works for someone who already has an account. There is no waitlist or notify-me field.</dd></div>
+        <div><dt class="">1 account</dt><dd>Your Instagram profile. We deliberately don't quote a follower count &mdash; it moved from 3,445 to 3,462 in one morning while we were writing this.</dd></div>
+        <div><dt class="">4 prefixes</dt><dd>Counted across your bio, captions, site copy, product names and press quotes.</dd></div>
+        <div><dt class="">&#36;450K</dt><dd>Entrackr and the announcements from both funds. &ldquo;Neither has bought fragrance before&rdquo; comes from reading both published portfolios.</dd></div>
+        <div><dt class="gap">What we're assuming</dt><dd>Nothing in this list. Every line is either something you published or something we read in your markup. That's why it's the first thing on the page.</dd></div>
+      </dl></div></details>
 </section>
 
 <!-- 03 / THE SECOND COLLECTION -->
@@ -231,6 +273,10 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
   <h2 class="d h2 rv" style="margin-top:16px;max-width:20ch">The World of Antonyms has four. Here are five more.</h2>
   <p style="color:var(--ash);margin-top:16px;text-transform:uppercase;letter-spacing:.06em;font-size:12px">
     They're not for sale. They're already yours.</p>
+  <p style="color:var(--stamp);margin-top:22px;max-width:56ch;font-size:13px;line-height:1.7">
+    All five are read from the outside, from what's public. If you already have any of this
+    running internally, say so and we'll stop talking about it. Each one carries a note
+    showing what we actually saw and what we're only guessing.</p>
 
   <div style="margin-top:clamp(30px,5vw,54px)">
 
@@ -245,6 +291,12 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
         <p>Fifteen outlets ran your funding story in three days. Every reader who went looking found a door with no bell.</p>
         <p><strong>Single-use codes with a referral tree do the same job and tell you everything</strong> &mdash; and they let the circle widen without thinning, because entry is still earned, just traceable.</p>
       </div></details>
+    
+    <details class="ev"><summary><i>i</i>What we can and can't see here</summary><div class="note"><dl>
+          <div><dt class="">What we saw</dt><dd>cunin.in is gated by a single Shopify storefront password &mdash; one shared string, the same for everyone who has it. Shopify's password page has no per-person codes and keeps no record of failed attempts. Your published figures are 7,000+ registered and 300+ paid.</dd></div>
+          <div><dt class="gap">What we're assuming</dt><dd>That there is no separate internal system tracking who used which code, who invited whom, and who bounced. <em>We cannot see that from outside, and you may well have it.</em> If you do, this item is wrong, and we would much rather hear that in the first reply than the third meeting.</dd></div>
+          <div><dt class="">What we're confident about</dt><dd>Whatever you run internally, the Shopify password itself cannot tell two people using the same string apart. That's a property of the platform, not a guess about you.</dd></div>
+        </dl></div></details>
     </article>
 
     <article class="item" data-ix="02">
@@ -256,6 +308,11 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
         <p>Carryable perfume accessories is a genuinely good category — the behaviour exists, and no funded premium brand owns it. But nowhere, across the whole grid or the fifteen articles, does anything say what the object physically <strong>is</strong>. Solid or liquid. How long it wears. Whether it refills. How it attaches.</p>
         <p>That holds beautifully until someone has to decide whether to spend money. <strong>Mystery sells the first one. It does not sell the second.</strong></p>
       </div></details>
+    
+    <details class="ev"><summary><i>i</i>What we can and can't see here</summary><div class="note"><dl>
+          <div><dt class="">What we saw</dt><dd>We read every public post on the grid and the roughly fifteen syndicated funding articles from 2&ndash;4 July. None state the product's format, capacity, wear time, refillability or how it attaches.</dd></div>
+          <div><dt class="gap">What we're assuming</dt><dd>That this isn't all sitting behind the gate. <em>We have not seen your product pages</em> &mdash; cunin.in/products.json returns a 401, so the catalogue is sealed to us. If the spec is there once you're in, the gap only applies to people deciding whether to try to get in at all.</dd></div>
+        </dl></div></details>
     </article>
 
     <article class="item" data-ix="03">
@@ -267,6 +324,11 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
         <p>There is no surface anywhere on which an IM&ndash;perfect can actually <strong>be</strong> one. No list, no room, no channel, nothing that separates the person who has been there since May from the person who arrived this morning. Instagram is the whole distribution asset and it cannot tell them apart.</p>
         <p>Right now exclusivity is a caption. <strong>It should be a room.</strong> Broadcast, not chat — secret societies run on knowing first, not on talking.</p>
       </div></details>
+    
+    <details class="ev"><summary><i>i</i>What we can and can't see here</summary><div class="note"><dl>
+          <div><dt class="">What we saw</dt><dd>Instagram is the only channel linked anywhere public. Your bio reads &ldquo;You might be one of us.&rdquo; and links only to cunin.in.</dd></div>
+          <div><dt class="gap">What we're assuming</dt><dd>That there is no private list or channel we can't see. <em>Given you ran an invite-only event, you almost certainly have a guest list somewhere.</em> If so the point shifts rather than disappears: the list exists, but there's no ongoing place for those people to keep being insiders between drops.</dd></div>
+        </dl></div></details>
     </article>
 
     <article class="item" data-ix="04">
@@ -279,6 +341,13 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
         <p>The failure mode is gradual, not dramatic. More SKUs, wider availability, one exception that made sense at the time — and a premium anti-dupe position quietly becomes another dupe brand. Bella Vita did &#8377;456 Cr last year on &#8377;90 Cr of advertising for a 4.61% margin. <strong>That is what the bottom of this market pays.</strong></p>
         <p>The other direction has a cliff too. VF bought Supreme for &#36;2.2bn and sold it four years later for &#36;1.5bn — revenue fell across the hold, and the diagnosis was that opening stores removed a layer of scarcity. In India the gap is starker: the purest drop brands here are &#8377;4&ndash;30 Cr businesses. Snitch, which won on newness velocity instead, did <strong>&#8377;900 Cr</strong>.</p>
       </div></details>
+    
+    <details class="ev"><summary><i>i</i>Where these numbers come from</summary><div class="note"><dl>
+          <div><dt class="">Bella Vita</dt><dd>FY25 filings via Entrackr: &#8377;456 Cr revenue, &#8377;90 Cr advertising, 4.61% EBITDA margin.</dd></div>
+          <div><dt class="">Supreme</dt><dd>VF Corp filings and the EssilorLuxottica sale &mdash; bought for &#36;2.2bn in 2020, sold for &#36;1.5bn in 2024, revenue down from &#36;561.5M to &#36;523.1M across the hold.</dd></div>
+          <div><dt class="">India drop brands</dt><dd>Almost Gods &#8377;4.4 Cr (FY24, MCA), Comet &#8377;29.1 Cr (FY25), against Snitch at &#8377;900 Cr (FY26).</dd></div>
+          <div><dt class="gap">What we're assuming</dt><dd>That your investors expect conventional venture growth. <em>We don't know your terms.</em> We're going off what both funds said publicly about this bet and what their stage and published cheque sizes imply.</dd></div>
+        </dl></div></details>
     </article>
 
     <article class="item" data-ix="05">
@@ -291,6 +360,12 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
         <p>You already know what the alternative feels like, because you built it. Five hundred designs a week. A drop every Friday, without exception. A thirty-day inventory cycle against an industry that runs three to five months. <strong>You are not slow people. You are operating without a machine.</strong></p>
         <p>And you cannot hire your way out of it. A junior types a plain hyphen into IM&ndash;PERFECT in week one.</p>
       </div></details>
+    
+    <details class="ev"><summary><i>i</i>What we can and can't see here</summary><div class="note"><dl>
+          <div><dt class="">What we saw</dt><dd>NEWME's model is well documented &mdash; 500+ new designs a week, a drop every Friday, a roughly thirty-day inventory cycle against an industry norm of three to five months. All three of you built inside it.</dd></div>
+          <div><dt class="gap">What we're assuming</dt><dd>That CUNIN's content is made by the founders directly. <em>You have eight people and we can only account for four roles.</em> If there's a creative team we haven't found, the volume question still stands but the &ldquo;founder hours&rdquo; framing doesn't.</dd></div>
+          <div><dt class="">One thing we did verify</dt><dd>Your own site writes <samp>UN-LOCKED</samp> with a plain hyphen, while your bio and captions use an en dash. That is exactly the drift we're describing, and it has already happened once.</dd></div>
+        </dl></div></details>
     </article>
 
   </div>
@@ -304,8 +379,14 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
 
   <details><summary>Why that changes everything</summary><div class="body">
     <p>Perfume repeats on depletion — slow, unpredictable, outside your control. <strong>Collectibles repeat on set completion</strong>, where the unit of demand is "which one don't I have" — a question you author entirely. It is also the one category where scarcity is the growth engine rather than the ceiling on it. Pop Mart and SNKRS both grow by raising drop frequency and access tiers while holding unit scarcity constant — the opposite of widening distribution, which is the move that cost Supreme its premium.</p>
-    <p class="ash">The sting: you shipped the entire set in one drop, un-serialised, with no ownership record. Nobody at CUNIN can answer "who owns two of the four" — the highest-converting message in a set-based business.</p>
+    <p class="ash">The sting: you shipped the set un-serialised. Shopify can tell you what was <em style="font-style:normal;color:var(--stamp)">ordered</em> &mdash; that part you already have. What it can't tell you is what is in whose hand. Gifts, resale, anyone who ordered under two different emails, and whether a unit is genuine at all are invisible to order data, and every one of those matters more in a set than in a bottle.</p>
   </div></details>
+
+  <details class="ev"><summary><i>i</i>How we reached this, and what we might be wrong about</summary><div class="note"><dl>
+        <div><dt>What we saw</dt><dd>Your own category name is an accessory &mdash; worn, clipped, carried. The packaging reads DANGLE. The debut is four names generated from one grammar rather than a hero scent with flankers. DIS&ndash;LOYAL is photographed in a clear acrylic case. QR codes are already on the boxes. Your lead investor described it publicly as &ldquo;a brand you actually want to be <em>seen</em> with&rdquo;.</dd></div>
+        <div><dt>What we concluded</dt><dd>That the object behaves more like a collectible than a fragrance, and that repeat purchase will therefore be driven by completing a set rather than by running out.</dd></div>
+        <div><dt class="gap">What we're assuming</dt><dd>That you haven't already built this thinking internally. <em>You may have named it before we did.</em> We also don't know whether DANGLE is refillable &mdash; if it is, the economics are better than anything on this page, because the housing becomes durable and the scent becomes the repeat purchase. That's the first question we'd ask in a meeting, not something we'd assert here.</dd></div>
+      </dl></div></details>
 
   <div class="ship" style="margin-top:26px">
     <p class="k">You already wrote the brief</p>

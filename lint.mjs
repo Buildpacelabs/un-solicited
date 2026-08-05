@@ -12,8 +12,11 @@ const EM = '—';
 const PREFIX = /\b(UN|MIS|DIS|IM)([–—-])([A-Za-z])/g;
 
 const src = readFileSync(process.argv[2] ?? 'index.html', 'utf8');
+// <samp> marks text quoted verbatim from someone else -- including their mistakes.
+// It is exempt from the dash rules, because correcting a quote would falsify it.
 const text = src.replace(/<script[\s\S]*?<\/script>/g, '')
-                .replace(/<style[\s\S]*?<\/style>/g, '');
+                .replace(/<style[\s\S]*?<\/style>/g, '')
+                .replace(/<samp>[\s\S]*?<\/samp>/g, '');
 
 let fail = 0;
 const bad = (m) => { console.error('FAIL ' + m); fail = 1; };
