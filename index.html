@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UN—SOLICITED / The Second Collection</title>
+<meta name="description" content="Five antonyms CUNIN hasn't named yet. From Buildspace Labs and Last Agency.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="UN—SOLICITED">
+<meta property="og:description" content="Nobody asked. That's the point.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23FF3B00'/><path d='M9 18 l3 4 l3-4 l3 4 l3-4 l2 3' stroke='%23000' stroke-width='2.5' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#000; --stamp:#fff; --pen:#FF3B00; --ash:#8A8A8A; --dust:#1A1A1A;
+  --disp:'Archivo','Arial Narrow',Impact,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --gut:clamp(20px,5vw,80px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--void); color:var(--stamp); font-family:var(--mono);
+  font-size:14px; line-height:1.55; letter-spacing:.04em;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body.locked{overflow:hidden}
+::selection{background:var(--pen);color:#000}
+
+/* ---- texture ---- */
+.noise,.scan{position:fixed;inset:0;pointer-events:none;z-index:90}
+.noise{opacity:.05;mix-blend-mode:overlay}
+.scan{opacity:.03;background:repeating-linear-gradient(180deg,#fff 0 1px,transparent 1px 3px)}
+
+/* ---- type ---- */
+.d{font-family:var(--disp);font-weight:900;font-stretch:70%;text-transform:uppercase;
+   letter-spacing:-.035em;line-height:.92}
+.h1{font-size:clamp(2.6rem,10.5vw,8rem)}
+.h2{font-size:clamp(1.7rem,5.2vw,3.6rem)}
+.h3{font-size:clamp(1.25rem,3.4vw,2.1rem)}
+.mono-lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+.pen{color:var(--pen)}
+.ash{color:var(--ash)}
+
+/* ---- layout ---- */
+main{max-width:1180px;margin:0 auto;padding:0 var(--gut)}
+section{padding:clamp(64px,11vh,140px) 0;border-top:1px solid var(--dust)}
+section:first-of-type{border-top:0}
+.rail{border-left:1px solid var(--dust);padding-left:clamp(14px,2.4vw,28px)}
+
+/* ---- sticky top rail ---- */
+#rail{position:fixed;top:0;left:0;right:0;height:28px;z-index:80;
+  background:rgba(0,0,0,.92);border-bottom:1px solid var(--dust);
+  display:flex;align-items:center;gap:14px;padding:0 var(--gut);
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);
+  white-space:nowrap;overflow:hidden;opacity:0;transition:opacity .4s}
+#rail.on{opacity:1}
+#rail b{color:var(--stamp);font-weight:400}
+#rail .sp{margin-left:auto}
+
+/* ---- gate ---- */
+#gate{position:fixed;inset:0;z-index:100;background:var(--void);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:26px;padding:24px;text-align:center;
+  transition:transform .42s cubic-bezier(.85,0,.15,1)}
+#gate.up{transform:translateY(-100%)}
+#field{position:absolute;inset:0;z-index:0}
+#gate>*:not(#field){position:relative;z-index:1}
+#gin{
+  background:none;border:0;border-bottom:1px solid var(--dust);outline:0;
+  font-family:var(--mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--stamp);caret-color:var(--pen);text-align:center;
+  width:min(20ch,74vw);padding:10px 4px}
+#gin:focus{border-bottom-color:var(--pen)}
+#gmsg{min-height:1px}
+.gline{opacity:0}
+.gline.on{opacity:1}
+#flash{position:fixed;inset:0;z-index:120;background:#fff;opacity:0;pointer-events:none;
+  mix-blend-mode:difference}
+
+/* ---- reveal ---- */
+.rv{clip-path:inset(0 0 100% 0);transform:translateY(8px);
+    transition:clip-path .22s var(--ease),transform .22s var(--ease)}
+.rv.in{clip-path:inset(0 0 0 0);transform:none}
+
+/* ---- receipt ---- */
+.receipt{list-style:none;display:grid;gap:2px;margin:26px 0 0}
+.receipt li{display:flex;gap:14px;align-items:baseline;padding:9px 0;
+  border-bottom:1px solid var(--dust);font-size:clamp(12px,1.5vw,14px)}
+.receipt .n{font-family:var(--disp);font-weight:900;font-stretch:70%;
+  font-size:clamp(1.25rem,3vw,1.9rem);line-height:1;min-width:4.6ch;letter-spacing:-.02em}
+.receipt .t{color:var(--ash);text-transform:uppercase;letter-spacing:.08em}
+.receipt .t em{font-style:normal;color:var(--stamp)}
+
+/* ---- collection ---- */
+.item{padding:clamp(28px,5vw,48px) 0;border-top:1px solid var(--dust)}
+.item:first-child{border-top:0}
+.item .idx{font-size:11px;letter-spacing:.18em;color:var(--pen);margin-bottom:10px}
+.item .sub{font-size:clamp(13px,1.8vw,16px);color:var(--stamp);margin:12px 0 18px;
+  text-transform:uppercase;letter-spacing:.06em}
+.item p{color:var(--ash);max-width:62ch;margin-bottom:12px}
+.item p strong{color:var(--stamp);font-weight:400}
+.fix{display:flex;gap:12px;margin-top:22px;max-width:62ch;
+  color:var(--pen);font-size:clamp(12px,1.6vw,14px);
+  text-transform:uppercase;letter-spacing:.06em;line-height:1.6}
+.fix .ar{flex:0 0 auto;font-weight:700}
+
+/* ---- ship ---- */
+.ship{background:var(--dust);padding:clamp(26px,4.5vw,44px);margin-top:32px}
+.ship .k{font-size:11px;letter-spacing:.18em;color:var(--pen);margin-bottom:14px}
+.ship p{color:var(--ash);max-width:64ch;margin-bottom:12px}
+.ship p strong{color:var(--stamp);font-weight:400}
+.arrowline{font-family:var(--disp);font-weight:900;font-stretch:70%;
+  font-size:clamp(1rem,2.7vw,1.7rem);letter-spacing:-.02em;margin-top:24px;line-height:1.15}
+
+/* ---- terms ---- */
+.terms{display:grid;gap:26px;margin-top:30px}
+@media(min-width:800px){.terms{grid-template-columns:1fr 1fr;gap:44px}}
+.terms h4{font-family:var(--disp);font-weight:900;font-stretch:70%;
+  font-size:clamp(1.1rem,2.4vw,1.5rem);letter-spacing:-.02em;margin-bottom:12px}
+.terms li{list-style:none;color:var(--ash);padding:7px 0;border-bottom:1px solid var(--dust);
+  font-size:13px}
+
+/* ---- close ---- */
+.lower{text-transform:none;letter-spacing:.02em;color:var(--ash);font-size:15px;margin-bottom:36px}
+.picks{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 30px}
+.pick{display:inline-block;border:1px solid var(--pen);color:var(--pen);
+  padding:13px 18px;text-decoration:none;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;transition:background .12s,color .12s;
+  -webkit-tap-highlight-color:transparent}
+.pick:hover,.pick:focus-visible{background:var(--pen);color:#000;outline:0}
+
+footer{border-top:1px solid var(--dust);padding:clamp(44px,8vh,90px) 0 60px;
+  color:var(--ash);font-size:12px}
+footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(--stamp);
+  font-size:clamp(1.5rem,4.6vw,3rem);letter-spacing:-.03em;line-height:.95;margin-bottom:18px}
+#again{color:var(--pen);text-decoration:none;border-bottom:1px solid var(--pen)}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rv{clip-path:none;transform:none}
+}
+</style>
+</head>
+<body class="locked">
+
+<svg class="noise" aria-hidden="true"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+<div class="scan" aria-hidden="true"></div>
+<div id="flash" aria-hidden="true"></div>
+
+<!-- 00 / THE GATE -->
+<div id="gate">
+  <svg id="field" aria-hidden="true" preserveAspectRatio="none"></svg>
+  <h1 class="d h2" style="max-width:16ch">You might be one of us.</h1>
+  <input id="gin" autocomplete="off" autocapitalize="characters" spellcheck="false"
+         aria-label="Password" placeholder="">
+  <p class="mono-lbl" id="ghint">Hint: there isn't one.</p>
+  <div id="gmsg">
+    <p class="d h2 gline" id="g1">UN—LOCKED.</p>
+    <p class="d h2 gline pen" id="g2">So is everyone.</p>
+    <p class="mono-lbl gline" id="g3" style="margin-top:14px;color:#fff">A gate that always opens is a door.</p>
+    <p class="mono-lbl gline" id="g4" style="margin-top:8px"></p>
+  </div>
+</div>
+
+<div id="rail"><span>UN—SOLICITED</span><span>05-08-2026</span><b id="railix">00—05</b><span class="sp" id="railsess"></span></div>
+
+<main>
+
+<!-- 01 / THE STAMP -->
+<section id="s-hero" style="min-height:88vh;display:flex;flex-direction:column;justify-content:center">
+  <h1 class="d h1 rv">Cunin is here.<br><span class="pen">Now what.</span></h1>
+  <div class="rail" style="margin-top:clamp(28px,5vw,48px)">
+    <p class="mono-lbl">UN—SOLICITED / The second collection</p>
+    <p class="mono-lbl">Buildspace Labs &times; Last Agency / 05-08-2026</p>
+    <p style="margin-top:18px;color:var(--ash);max-width:44ch;text-transform:uppercase;letter-spacing:.06em;font-size:12px">
+      We borrowed your grammar for one page. We'll give it back.</p>
+  </div>
+</section>
+
+<!-- 02 / THE RECEIPT -->
+<section id="s-receipt">
+  <p class="mono-lbl">02 / The receipt</p>
+  <h2 class="d h2 rv" style="margin-top:16px;max-width:22ch">Before we say anything — here is what we counted.</h2>
+  <ul class="receipt">
+    <li><span class="n" data-count="12">12</span><span class="t">Posts. Twelve reels. <em>Zero stills.</em></span></li>
+    <li><span class="n" data-count="3445">3,445</span><span class="t">Followers. <em>Following one.</em></span></li>
+    <li><span class="n" data-count="68">68</span><span class="t">Days from <em>MIS—JUDGED BY THEM</em> to <em>CUNIN IS HERE</em>.</span></li>
+    <li><span class="n" data-count="7000">7,000</span><span class="t">Registered. <em>You published that.</em></span></li>
+    <li><span class="n" data-count="300">300</span><span class="t">Paid. <em>You published that too.</em></span></li>
+    <li><span class="n">1</span><span class="t">Em—dash rule, never broken. <em>PRE-ORDERS got a hyphen.</em> We noticed.</span></li>
+  </ul>
+  <p class="d h3 rv" style="margin-top:36px">We didn't research you. <span class="pen">We read you.</span></p>
+</section>
+
+<!-- 03 / THE SECOND COLLECTION -->
+<section id="s-coll">
+  <p class="mono-lbl">03 / The second collection</p>
+  <h2 class="d h2 rv" style="margin-top:16px;max-width:20ch">The World of Antonyms has four. Here are five more.</h2>
+  <p style="color:var(--ash);margin-top:16px;text-transform:uppercase;letter-spacing:.06em;font-size:12px">
+    They're not for sale. They're already yours.</p>
+
+  <div style="margin-top:clamp(30px,5vw,54px)">
+
+    <article class="item" data-ix="01">
+      <p class="idx">01 / UN—COUNTED</p>
+      <h3 class="d h3">7,000 came. 300 stayed.</h3>
+      <p class="sub">You don't know who the other 6,700 were.</p>
+      <p>You wrote the number yourself on 31 July. It is a good number — it proves the demand is real. It is also the most expensive sentence on your LinkedIn, because <strong>96% of the intent you captured did not convert</strong>, and there is currently no way to go back and ask them why.</p>
+      <p>The gate is the reason. A Shopify password field is binary — it lets in the people who already know, and it destroys everyone else on arrival. It captures nothing from a failed attempt. Fifteen outlets ran your funding story in three days and pointed every reader at a door that keeps no record of who knocked.</p>
+      <p><strong>A scarcity brand's most valuable asset is a list of people who want in and can't get in.</strong> You are deleting yours daily.</p>
+      <div class="fix"><span class="ar">&rarr;</span><span>Keep the gate. Make it count. Every knock is a name, a source and a position in a queue.</span></div>
+    </article>
+
+    <article class="item" data-ix="02">
+      <p class="idx">02 / UN—EXPLAINED</p>
+      <h3 class="d h3">Nobody knows what it does.</h3>
+      <p class="sub">You invented a category and never said what it is.</p>
+      <p>Carryable perfume accessories. It is a genuinely good category — the behaviour exists, and no funded premium brand owns it. But nowhere, in twelve posts or fifteen articles, does anything say what the object physically <strong>is</strong>. Solid or liquid. How long it wears. Whether it refills. How it attaches.</p>
+      <p>That holds beautifully until someone has to decide whether to spend money. <strong>Mystery sells the first one. It does not sell the second.</strong></p>
+      <div class="fix"><span class="ar">&rarr;</span><span>Explain it without explaining it. No notes. No bergamot. No heart of jasmine. A spec plate, not a description — evidence, in your own typeface.</span></div>
+    </article>
+
+    <article class="item" data-ix="03">
+      <p class="idx">03 / UN—ANSWERED</p>
+      <h3 class="d h3">3,445 following 1.</h3>
+      <p class="sub">You said "you might be one of us." Nobody can answer.</p>
+      <p>There is no surface anywhere on which an IM—perfect can actually <strong>be</strong> one. No list, no room, no channel, no signal that separates the person who has been there since May from the person who arrived this morning. Instagram is the whole distribution asset and it cannot tell them apart.</p>
+      <p>Right now exclusivity is a caption. <strong>It should be a room.</strong></p>
+      <div class="fix"><span class="ar">&rarr;</span><span>Build the room, then membership is a place instead of a claim. Broadcast, not chat — secret societies run on knowing first, not on talking.</span></div>
+    </article>
+
+    <article class="item" data-ix="04">
+      <p class="idx">04 / UN—SCALABLE</p>
+      <h3 class="d h3">You met this one at the door.</h3>
+      <p class="sub">The brand is built on being hard to get. The cap table is built on getting big.</p>
+      <p>One of those has to give, and it will not be the cap table. Two funds just made their <strong>first fragrance bet</strong> on you, and both of them said the quiet part out loud: culture as much as commerce, a brand you want to be seen with, priced like it respects itself.</p>
+      <p>The failure mode is well documented and it is not dramatic. It is gradual. More SKUs, wider availability, one exception that made sense at the time — and a premium anti-dupe position quietly becomes another dupe brand. Bella Vita did &#8377;456 Cr last year on &#8377;90 Cr of advertising for a 4.61% margin. <strong>That is what the bottom of this market actually pays.</strong></p>
+      <div class="fix"><span class="ar">&rarr;</span><span>Scarcity has to stop being a mood and become a mechanic. Hold the unit scarce; scale the frequency and the tiers.</span></div>
+    </article>
+
+    <article class="item" data-ix="05">
+      <p class="idx">05 / UN—REPEATABLE</p>
+      <h3 class="d h3">Twelve posts of taste. No engine.</h3>
+      <p class="sub">You came from a machine that ships 500 new things a week.</p>
+      <p>Every one of those frames came out of the same few heads. That is exactly why they are good. It is also why there are only twelve — roughly one every six days, and it cannot go faster without one of you working more hours.</p>
+      <p>You already know what the alternative feels like, because you built it. Five hundred designs a week. A drop every Friday, without exception. A thirty-day inventory cycle against an industry that runs three to five months. <strong>You are not slow people. You are operating without a machine.</strong></p>
+      <p>And you cannot hire your way out of it. A junior breaks the em—dash rule in week one.</p>
+      <div class="fix"><span class="ar">&rarr;</span><span>The taste stays yours. The labour stops being yours. Encode the rules so the room can produce at volume without drifting.</span></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 04 / THE ONE WE'D SHIP FIRST -->
+<section id="s-ship">
+  <p class="mono-lbl">04 / The one we'd ship first</p>
+  <h2 class="d h2 rv" style="margin-top:16px;max-width:18ch">01 / UN—COUNTED. Because it decides the other four.</h2>
+
+  <div class="ship">
+    <p class="k">First, the thing we think you already suspect</p>
+    <p><strong>You are not selling perfume. You are selling a collectible.</strong></p>
+    <p>The category you invented is an accessory — worn, clipped, carried, <em>seen</em>. The sub-brand on the box is DANGLE. The debut isn't a hero scent with flankers; it is four names from one grammar, which is the structure of a set. DIS—LOYAL is photographed in a clear acrylic case like evidence. The launch flatlay is a haul, not an arrangement. There are QR codes on the packaging already.</p>
+    <p>This matters more than it sounds. Perfume repeats on depletion — slow, unpredictable, outside your control. <strong>Collectibles repeat on set completion</strong>, where the unit of demand is "which one don't I have" — a question you author entirely. It is also the one category on earth where scarcity is the growth engine rather than the ceiling on it. Supreme, Pop Mart and SNKRS all grow by raising drop frequency and access tiers while holding unit scarcity constant.</p>
+    <p class="ash">The sting: you shipped the entire set in one drop, un-serialised, with no ownership record. Nobody at CUNIN can answer "who owns two of the four" — which is the highest-converting message in a set-based business.</p>
+  </div>
+
+  <div class="ship" style="margin-top:14px">
+    <p class="k">So here is the build</p>
+    <p><strong>You already wrote the brief.</strong> "Rest of you have to wait, or be cunin enough to find a way in." That sentence describes a graded, earnable, adversarial access system.</p>
+    <p>The software underneath it is a single shared password field.</p>
+    <p><strong>You wrote a mechanism you never built.</strong> We would build it — a real gate in front of your storefront, checkout untouched on Shopify. A waitlist with a visible position. Invite codes that work exactly once, with a referral tree. Unlock windows per cohort. A lottery when it's oversubscribed. And an event log that records every attempt, <em>including the failures</em>.</p>
+    <p>Not a discount for a referral — that converts scarcity into a coupon and your people will read it as a betrayal in about four minutes. The reward is proximity, not money. <strong>You don't get money off. You get in earlier.</strong> Every version of that makes the object harder to get for everyone outside the loop, not easier.</p>
+    <p class="arrowline">Scarcity you can't scale<br><span class="pen">&rarr; scarcity that scales itself.</span></p>
+  </div>
+
+  <div class="ship" style="margin-top:14px;background:none;border:1px solid var(--pen);padding:clamp(22px,4vw,36px)">
+    <p class="k">And you don't pay to find out</p>
+    <p>We build it first, in your black, your condensed caps, your em—dashes, your copy. You open it on your phone, enter an email, get a position, send an invite to Amish and watch your own number move.</p>
+    <p>Then we show you the other screen: <strong>everyone who tried to get in this week, where they came from, and what your current page did with them.</strong></p>
+    <p class="ash">That is the whole method. A reference build comes before the estimate. Progress is a URL you can open, not a percentage on a slide.</p>
+  </div>
+</section>
+
+<!-- 05 / WHO'S TALKING -->
+<section id="s-who">
+  <p class="mono-lbl">05 / Who's talking</p>
+  <h2 class="d h2 rv" style="margin-top:16px">We are two.</h2>
+  <div class="rail" style="margin-top:26px;display:grid;gap:14px;max-width:56ch">
+    <p><strong style="font-weight:400">BUILDSPACE LABS</strong> <span class="ash">&mdash; we build the machine.</span></p>
+    <p><strong style="font-weight:400">LAST AGENCY</strong> <span class="ash">&mdash; we drive the demand.</span></p>
+    <p class="ash" style="margin-top:10px">You have neither. That isn't a criticism, it's a calendar &mdash; you're ten weeks in public. You have no engineer, and one marketing hire six months into a first job. That gap between the plan you funded and the roster you have is the only reason this page exists.</p>
+  </div>
+</section>
+
+<!-- 06 / THE TERMS -->
+<section id="s-terms">
+  <p class="mono-lbl">06 / The terms</p>
+  <h2 class="d h2 rv" style="margin-top:16px">No decks. No retainers you can't leave.</h2>
+  <div class="terms">
+    <div>
+      <h4>Buildspace Labs</h4>
+      <ul>
+        <li>You click the system before you pay for it.</li>
+        <li>A working reference comes before the estimate.</li>
+        <li>The people who scope it write it.</li>
+        <li>Every week ends with something deployed.</li>
+        <li>Decisions get written down next to the code.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Last Agency</h4>
+      <ul>
+        <li>Rank or it's free.</li>
+        <li>SEO is free until it beats your own baseline.</li>
+        <li>Paid media fee is waived if we miss the number.</li>
+        <li>Social is month-to-month. You keep the assets.</li>
+        <li>Three clients a month. No lock-in.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="d h3 rv" style="margin-top:38px;max-width:26ch">Miss your number and you stop paying for it. <span class="pen">We put the risk on our side of the table.</span></p>
+  <p class="d h3" style="margin-top:26px">You can be <span class="pen">DIS—LOYAL</span>. It's built in.</p>
+</section>
+
+<!-- 07 / THE CLOSE -->
+<section id="s-close">
+  <p class="lower">nobody asked us to do this.</p>
+  <h2 class="d h2 rv">Pick one.</h2>
+  <div class="picks" id="picks">
+    <a class="pick" href="#" data-k="UN—COUNTED">UN—COUNTED</a>
+    <a class="pick" href="#" data-k="UN—EXPLAINED">UN—EXPLAINED</a>
+    <a class="pick" href="#" data-k="UN—ANSWERED">UN—ANSWERED</a>
+    <a class="pick" href="#" data-k="UN—SCALABLE">UN—SCALABLE</a>
+    <a class="pick" href="#" data-k="UN—REPEATABLE">UN—REPEATABLE</a>
+  </div>
+  <p class="mono-lbl" style="color:#fff">Tap the one that keeps you up.</p>
+  <p class="ash" style="margin-top:14px;max-width:48ch;text-transform:uppercase;letter-spacing:.06em;font-size:12px">
+    We'll send one page on it. Not a deck. One page.<br>
+    No call. No calendar link. No discovery session.</p>
+</section>
+
+<footer>
+  <p class="big">UN—SOLICITED<br>The second collection</p>
+  <p style="text-transform:uppercase;letter-spacing:.08em">Not for sale. Already yours.</p>
+  <p style="margin-top:22px">05-08-2026 &middot; Buildspace Labs &times; Last Agency</p>
+  <p style="margin-top:10px"><a href="#" id="again">Run it again &rarr;</a></p>
+</footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+var CONTACT = "aryansi1126@gmail.com"; // <-- change to the sending address
+
+var gate=document.getElementById('gate'), gin=document.getElementById('gin'),
+    rail=document.getElementById('rail'), flash=document.getElementById('flash'),
+    field=document.getElementById('field'), hint=document.getElementById('ghint'),
+    g1=document.getElementById('g1'),g2=document.getElementById('g2'),
+    g3=document.getElementById('g3'),g4=document.getElementById('g4'),
+    reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,
+    touch=matchMedia('(hover: none)').matches,
+    session='', opened=false, timers=[];
+
+function T(fn,ms){timers.push(setTimeout(fn,ms));}
+function clearT(){timers.forEach(clearTimeout);timers=[];}
+
+/* ---- seeded circle field: bland faces, one becomes the grin ---- */
+var seed=20260805;
+function rnd(){seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;}
+var NODES=[];
+function buildField(){
+  var w=innerWidth,h=innerHeight,ns='http://www.w3.org/2000/svg';
+  field.setAttribute('viewBox','0 0 '+w+' '+h);
+  field.innerHTML='';NODES=[];seed=20260805;
+  for(var i=0;i<60;i++){
+    var x=rnd()*w,y=rnd()*h,r=6+rnd()*7;
+    // keep the centre clear so type stays legible
+    if(Math.abs(x-w/2)<Math.min(300,w*.42)&&Math.abs(y-h/2)<190){continue;}
+    var g=document.createElementNS(ns,'g');
+    var c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',r);
+    c.setAttribute('fill','#1A1A1A');
+    var f=document.createElementNS(ns,'path');
+    f.setAttribute('d','M'+(x-r*.42)+' '+(y+r*.28)+' L'+(x+r*.42)+' '+(y+r*.28));
+    f.setAttribute('stroke','rgba(255,255,255,.34)');f.setAttribute('stroke-width','1.4');
+    f.setAttribute('fill','none');
+    var e1=document.createElementNS(ns,'circle');
+    e1.setAttribute('cx',x-r*.34);e1.setAttribute('cy',y-r*.24);e1.setAttribute('r',1.3);
+    e1.setAttribute('fill','rgba(255,255,255,.34)');
+    var e2=document.createElementNS(ns,'circle');
+    e2.setAttribute('cx',x+r*.34);e2.setAttribute('cy',y-r*.24);e2.setAttribute('r',1.3);
+    e2.setAttribute('fill','rgba(255,255,255,.34)');
+    g.appendChild(c);g.appendChild(e1);g.appendChild(e2);g.appendChild(f);
+    g.style.transition='opacity .3s';
+    field.appendChild(g);
+    NODES.push({g:g,c:c,f:f,x:x,y:y,r:r});
+  }
+}
+buildField();
+addEventListener('resize',function(){if(!opened)buildField();});
+
+function grin(n){
+  var x=n.x,y=n.y,r=n.r,s=r*.52,b=r*.3,d='M'+(x-s)+' '+(y+b*.2);
+  for(var i=0;i<5;i++){
+    d+=' L'+(x-s+(s*2/5)*(i+.5))+' '+(y+b*(i%2?0:1.5));
+    d+=' L'+(x-s+(s*2/5)*(i+1))+' '+(y+b*.2);
+  }
+  n.f.setAttribute('d',d);
+  n.f.setAttribute('stroke','#000');
+  n.f.setAttribute('stroke-width',(r*.34).toFixed(2));
+  n.c.setAttribute('fill','#FF3B00');
+  n.g.style.transformOrigin=x+'px '+y+'px';
+  n.g.style.transition='transform .18s cubic-bezier(.16,1,.3,1)';
+  n.g.style.transform='scale(3)';
+}
+
+function open(){
+  if(opened)return; opened=true; clearT();
+  var tries=0;
+  try{tries=(parseInt(localStorage.getItem('uns_t')||'0',10)||0)+1;
+      localStorage.setItem('uns_t',String(tries));}catch(e){tries=1;}
+
+  session=(gin.value||'').trim().toUpperCase().slice(0,18);
+  hint.style.opacity='0'; gin.blur(); gin.style.opacity='.25';
+
+  if(reduce){finish(tries);return;}
+
+  var pick=NODES.length?NODES[Math.floor(Math.random()*NODES.length)]:null;
+  if(pick)grin(pick);
+  T(function(){NODES.forEach(function(n){if(n!==pick)n.g.style.opacity='.03';});},200);
+  T(function(){g1.classList.add('on');},400);
+  T(function(){g2.classList.add('on');},900);
+  T(function(){g3.classList.add('on');},1600);
+  if(tries>=3)T(function(){g4.textContent="That's three. None of them were wrong.";
+                           g4.classList.add('on');},1900);
+  T(function(){flash.style.transition='none';flash.style.opacity='1';
+    T(function(){flash.style.transition='opacity .06s';flash.style.opacity='0';},60);},2100);
+  T(function(){finish(tries);},2160);
+}
+
+function finish(){
+  gate.classList.add('up');
+  document.body.classList.remove('locked');
+  rail.classList.add('on');
+  document.getElementById('railsess').textContent = session?('SESSION: '+session):'SESSION: —';
+  T(function(){gate.style.display='none';},460);
+  reveal();count();
+}
+
+/* gate triggers - every one of them succeeds */
+var idle;
+gin.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();open();}});
+gin.addEventListener('input',function(){
+  clearTimeout(idle);
+  if(gin.value.trim().length>=3)idle=setTimeout(open,800);
+});
+gate.addEventListener('click',function(e){
+  if(opened){gate.classList.add('up');return;}
+  if(e.target!==gin)gin.focus();
+});
+if(!touch&&!reduce)setTimeout(function(){try{gin.focus();}catch(e){}},700);
+
+/* idle fallback: it types itself, so the gate can never actually block anyone */
+T(function(){
+  if(opened||gin.value)return;
+  var w='ANYTHING',i=0;
+  (function tick(){
+    if(opened)return;
+    gin.value=w.slice(0,++i);
+    if(i<w.length)T(tick,70); else T(open,500);
+  })();
+},6000);
+
+/* ---- scroll reveal ---- */
+function reveal(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});
+  },{rootMargin:'0px 0px -12% 0px'});
+  els.forEach(function(e){io.observe(e);});
+}
+
+/* ---- receipt counters ---- */
+function count(){
+  var ns=[].slice.call(document.querySelectorAll('.receipt .n[data-count]'));
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if(!x.isIntersecting)return; io.unobserve(x.target);
+      var el=x.target,to=+el.dataset.count,t0=0;
+      if(reduce)return;
+      (function step(ts){
+        if(!t0)t0=ts; var p=Math.min((ts-t0)/400,1);
+        el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString('en-IN');
+        if(p<1)requestAnimationFrame(step);
+      })(0);
+      requestAnimationFrame(function(ts){t0=ts;});
+    });
+  },{rootMargin:'0px 0px -20% 0px'});
+  ns.forEach(function(e){io.observe(e);});
+}
+
+/* ---- rail index ---- */
+var items=[].slice.call(document.querySelectorAll('.item'));
+if('IntersectionObserver' in window){
+  var rio=new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if(x.isIntersecting)document.getElementById('railix').textContent=x.target.dataset.ix+'—05';
+    });
+  },{rootMargin:'-45% 0px -45% 0px'});
+  items.forEach(function(e){rio.observe(e);});
+}
+
+/* ---- close: mailto, pre-filled with their own session string ---- */
+document.getElementById('picks').addEventListener('click',function(e){
+  var a=e.target.closest('.pick'); if(!a)return; e.preventDefault();
+  var k=a.dataset.k;
+  var body='Send the page.\n\n— sent from un—solicited, session: '+(session||'—');
+  location.href='mailto:'+CONTACT+'?subject='+encodeURIComponent(k)
+              +'&body='+encodeURIComponent(body);
+});
+
+/* ---- run it again ---- */
+document.getElementById('again').addEventListener('click',function(e){
+  e.preventDefault();
+  opened=false;clearT();
+  [g1,g2,g3,g4].forEach(function(n){n.classList.remove('on');});
+  g4.textContent='';
+  gin.value='';gin.style.opacity='1';hint.style.opacity='1';
+  buildField();
+  gate.style.display='';gate.classList.remove('up');
+  document.body.classList.add('locked');
+  rail.classList.remove('on');
+  scrollTo(0,0);
+  if(!touch)setTimeout(function(){try{gin.focus();}catch(e){}},400);
+  T(function(){
+    if(opened||gin.value)return;
+    var w='AGAIN',i=0;
+    (function tick(){if(opened)return;gin.value=w.slice(0,++i);
+      if(i<w.length)T(tick,70);else T(open,500);})();
+  },6000);
+});
+})();
+</script>
+</body>
+</html>
