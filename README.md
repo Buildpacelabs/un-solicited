@@ -54,9 +54,12 @@ python3 -m http.server 8899
 
 ## Configuration
 
-The contact address for the closing `mailto:` links is the `CONTACT` constant at
-the top of the inline script in `index.html`. **Set this before sending the
-link.**
+The closing buttons open WhatsApp via `wa.me` with a pre-filled draft. The
+destination is the `WHATSAPP` constant at the top of the inline script in
+`index.html` — country code plus number, digits only.
+
+`wa.me` only pre-fills the message. Nothing is sent until the user presses send,
+and the page says so directly above the buttons.
 
 ## Accessibility & behaviour notes
 

@@ -462,7 +462,14 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
     <p><strong style="font-weight:400">BUILDSPACE LABS</strong> <span class="ash">&mdash; we build the machine.</span></p>
     <p><strong style="font-weight:400">LAST AGENCY</strong> <span class="ash">&mdash; we drive the demand.</span></p>
     <p class="ash">You have neither. That isn't a criticism, it's a calendar.</p>
+    <p class="ash" style="margin-top:6px">Everything above is software. Storefronts, admin, apps &mdash; if it runs in a browser or on a phone, we've built it. <span style="color:var(--stamp)">We're proposing the smallest version because you're ten weeks old, not because it's all we do.</span></p>
   </div>
+
+  <details class="ev"><summary><i>i</i>What else we build, and what we'd tell you not to build yet</summary><div class="note"><dl>
+        <div><dt>Buildspace Labs</dt><dd>Storefronts and headless commerce, including custom checkout and Shopify work. Admin panels and internal tools &mdash; the screens your own team works in all day. Mobile apps on iOS and Android. In-app drop mechanics, push, scan&ndash;to&ndash;claim, loyalty and serial registries, wallet passes. AI agents, model-backed features and content pipelines. Around ten people, a few builds at a time. Three live case studies you can open and use: Brief Forge, Patient Front Desk, Support Pulse.</dd></div>
+        <div><dt>Last Agency</dt><dd>Search, AI answer surfaces, paid media and social. Performance-linked: the SEO fee is free until it beats your own baseline, and the paid fee is waived in any month we miss the number.</dd></div>
+        <div><dt class="gap">What we'd tell you not to build yet</dt><dd><em>A native app.</em> You're ten weeks in public with a few thousand followers and a raise that has to last eighteen to twenty-four months. An app at this stage is one of the more reliable ways to spend a quarter of a seed round on something nobody downloads. Ask us again when the serial registry has enough owners to make an app the obvious home for it &mdash; we'll tell you when, and we'd rather say it now than sell it to you today.</dd></div>
+      </dl></div></details>
 
   <p class="d h3 rv" style="margin-top:44px;max-width:26ch">Miss your number and you stop paying for it.</p>
   <details><summary>The terms in full</summary><div class="body">
@@ -486,9 +493,11 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
     <a class="pick" href="#" data-k="UN–REPEATABLE">UN–REPEATABLE</a>
   </div>
   <p class="mono-lbl" style="color:#fff">Tap the one that keeps you up.</p>
-  <p class="ash" style="margin-top:14px;max-width:48ch;text-transform:uppercase;letter-spacing:.06em;font-size:12px">
+  <p class="mono-lbl" style="margin-top:8px">Opens WhatsApp with a draft. Nothing sends until you press send.</p>
+  <p class="ash" style="margin-top:20px;max-width:50ch;text-transform:uppercase;letter-spacing:.06em;font-size:12px">
     We'll send one page on it. Not a deck. One page.<br>
-    No call. No calendar link. No discovery session.</p>
+    No call. No calendar link. No discovery session.<br>
+    <span style="color:var(--stamp)">Unless you'd rather &mdash; then say so and we'll call.</span></p>
 </section>
 
 <footer>
@@ -502,7 +511,7 @@ footer .big{font-family:var(--disp);font-weight:900;font-stretch:70%;color:var(-
 <script>
 (function(){
 "use strict";
-var CONTACT = "aryansi1126@gmail.com"; // <-- change to the sending address
+var WHATSAPP = "918340711366"; // <-- country code + number, digits only
 
 var gate=document.getElementById('gate'), gin=document.getElementById('gin'),
     rail=document.getElementById('rail'), flash=document.getElementById('flash'),
@@ -668,9 +677,10 @@ if('IntersectionObserver' in window){
 document.getElementById('picks').addEventListener('click',function(e){
   var a=e.target.closest('.pick'); if(!a)return; e.preventDefault();
   var k=a.dataset.k;
-  var body='Send the page.\n\n— sent from un—solicited, session: '+(session||'—');
-  location.href='mailto:'+CONTACT+'?subject='+encodeURIComponent(k)
-              +'&body='+encodeURIComponent(body);
+  var msg=k+' \u2014 send the page.\n\n(from un\u2013solicited'
+         +(session?', session: '+session:'')+')';
+  // wa.me only pre-fills the draft; the user still has to press send.
+  window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg),'_blank','noopener');
 });
 
 /* ---- run it again ---- */
